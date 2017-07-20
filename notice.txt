@@ -1,4 +1,4 @@
-Hello, %player%!
+Hello, %player%!1
 /nWelcome to Minecraft: Forbidden Adventures!
 /nMinecraft: Forbidden Adventures is still in development.
 /nPlease report any bugs and crashes that you may find!
