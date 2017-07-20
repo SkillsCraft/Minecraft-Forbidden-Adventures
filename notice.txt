@@ -1,5 +1,1 @@
-Hello there, %player%!\ntest\n
-Welcome to Minecraft: Forbidden Adventures!\n
-Minecraft: Forbidden Adventures is still in development.\n
-Please report any bugs and crashes that you may find!\n
-Thank you for playing Minecraft: Forbidden Adventures!\n
+\nRemember to enter Fullscreen Mode (F11 by default) if you aren't already in Fullscreen!\n\nThe latest version of Minecraft: Forbidden Adventures is Dev Version 0.0.1! You may need to update if your version above does not match this!\n\nNot sure where to begin? View the wiki by viewing the §e§lOfficial  Wiki§r!
