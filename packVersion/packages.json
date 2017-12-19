@@ -1,0 +1,12 @@
+{
+    "minimumVersion": 1,
+    "packages": [
+        {
+            "name": "Minecraft Forbidden Adventures",
+            "title": "Minecraft: Forbidden Adventures",
+            "version": "1.0",
+            "location": "MFA.json",
+            "priority": 1
+        }
+    ]
+}
