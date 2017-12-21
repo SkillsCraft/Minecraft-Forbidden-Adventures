@@ -958,7 +958,7 @@ energyitems {
 
 flightability {
     # Enable/Disable the Armors Flight
-    B:enableFlightAbility=true
+    B:enableFlightAbility=false
 }
 
 
@@ -992,7 +992,7 @@ mobdrops {
         B:enderDragonScaleDrop=true
 
         # Set the amount of dropped Ender Dragon Scales that the Ender Dragon will drop
-        I:enderDragonScaleDropAmount=12
+        I:enderDragonScaleDropAmount=1
     }
 
     witherboss {
@@ -1000,17 +1000,17 @@ mobdrops {
         B:witherBoneWitherBossDrop=true
 
         # Set the amount of dropped Wither Bones that the Wither Boss will drop
-        I:witherBoneWitherBossDropAmount=6
+        I:witherBoneWitherBossDropAmount=1
     }
 
     witherskeleton {
         # Enable/Disable the drop of Wither Bones from the Wither Skeleton
-        B:witherBoneWitherSkeletonDrop=true
+        B:witherBoneWitherSkeletonDrop=false
     }
 
     elderguardian {
         # Set the amount of dropped Guardian Scales that the Elder Guardian will drop
-        I:guardianScaleElderDropAmount=6
+        I:guardianScaleElderDropAmount=1
 
         # Enable/Disable the drop of Guardian Scales from the Elder Guardian
         B:guardianScaleElderGuardianDrop=true
