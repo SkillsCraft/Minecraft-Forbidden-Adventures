@@ -1,0 +1,62 @@
+# Configuration file
+
+basicincome {
+    # Amount of credits to give each player each day [range: 0 ~ 10000, default: 50]
+    I:amount=0
+
+    # Day length in minutes [range: 1 ~ 525600, default: 1440]
+    I:dayLength=525600
+
+    # Number of days after banknote no longer has value [range: 1 ~ 100, default: 10]
+    I:daysAfterBanknotesExpires=100
+
+    # Each day give set amount of credits to each player to stimulate economy [default: true]
+    B:enabled=false
+
+    # Maximum number of day since last login the player will be payed for.  [range: 1 ~ 20, default: 6]
+    I:maxLoginDelta=6
+
+    # Number of days of inactivity after account balance will be set to startBalance [range: 1 ~ 100, default: 100]
+    I:resetLoginDelta=100
+}
+
+
+general {
+    # Should banknotes be consumed when used by player in creative mode [default: true]
+    B:consumeBanknotesInCreativeMode=true
+
+    # Currency name (displayed in HUD, max 20 char) [default: credits]
+    S:"currency name (multiple)"=
+
+    # Currency name (displayed in HUD, max 20 char) [default: credit]
+    S:"currency name (singular)"=
+
+    # Set to true to allow crafting banknotes [default: true]
+    B:registerBanknoteRecipe=true
+
+    # Amount of credits given to new players joining the server [range: 0 ~ 10000, default: 100]
+    I:startBalance=0
+}
+
+
+gui {
+    # Set to false to set absolute hud position [default: true]
+    B:positionRelative=true
+
+    # HUD x offset in scalled pixels [range: -10000 ~ 10000, default: 0]
+    I:xOffset=40
+
+    # HUD y offset in scalled pixels [range: -10000 ~ 10000, default: 0]
+    I:yOffset=38
+}
+
+
+stampedmoney {
+    # Take % of players money each day to stimulate economy [default: true]
+    B:enabled=false
+
+    # What percentage of players money should be taken each day [range: 0 ~ 100, default: 1]
+    I:percent=1
+}
+
+
