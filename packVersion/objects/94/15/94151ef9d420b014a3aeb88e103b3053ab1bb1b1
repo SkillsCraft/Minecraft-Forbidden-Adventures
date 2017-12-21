@@ -25,7 +25,7 @@
             "action" : 
             {
                 "type" : "connectToServer",
-                "ip" : "localhost"
+                "ip" : "10.156.43.2"
             }
         },
         "account":
