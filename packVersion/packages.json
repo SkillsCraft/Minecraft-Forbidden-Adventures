@@ -1,0 +1,12 @@
+{
+  "minimumVersion" : 1,
+  "packages" : [
+    {
+      "title" : "Minecraft: Forbidden Adventures",
+      "name" : "Minecraft Forbidden Adventures",
+      "version" : "pre1",
+      "location" : "minecraft-forbidden-adventures.json",
+      "priority" : 0
+    }
+  ]
+}
