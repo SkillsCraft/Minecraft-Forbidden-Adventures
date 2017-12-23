@@ -1,17 +1,5 @@
 print("Initializing 'beyond.zs'...");
 
-#Game balance
-recipes.remove(<betterwithmods:material:50>);
-<betterwithmods:material:50>.addTooltip(format.yellow("Use the chain armor recipe from ArmorPlus instead."));
-
-#Premium items
-recipes.remove(<props:props:508>);
-recipes.remove(<chiselsandbits:chisel_stone>);
-recipes.remove(<chiselsandbits:chisel_iron>);
-recipes.remove(<chiselsandbits:chisel_gold>);
-recipes.remove(<chiselsandbits:chisel_diamond>);
-recipes.remove(<chiselsandbits:bitsaw_diamond>);
-
 #Remove ChunkLoaders
 recipes.remove(<extrautils2:chunkloader>);
 <extrautils2:chunkloader>.addTooltip(format.yellow("Purchase chunk loaders at the market."));
@@ -19,8 +7,6 @@ recipes.remove(<ic2:te:82>);
 <ic2:te:82>.addTooltip(format.yellow("Purchase chunk loaders at the market."));
 recipes.remove(<opencomputers:upgrade:4>);
 <opencomputers:upgrade:4>.addTooltip(format.yellow("Purchase chunk loaders at the market."));
-recipes.remove(<minefactoryreloaded:machine_2:10>);
-<minefactoryreloaded:machine_2:10>.addTooltip(format.yellow("Purchase chunk loaders at the market."));
 recipes.remove(<railcraft:worldspike:1>);
 <railcraft:worldspike:1>.addTooltip(format.yellow("Purchase chunk loaders at the market."));
 recipes.remove(<railcraft:worldspike:2>);
