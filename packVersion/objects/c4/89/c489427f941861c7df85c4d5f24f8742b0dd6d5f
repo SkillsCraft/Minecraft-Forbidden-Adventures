@@ -72,8 +72,8 @@
   "mappingEnabled": true,
   "renderOverlayEventTypeName": "ALL",
   "renderOverlayPreEvent": true,
-  "optionsManagerViewed": "",
-  "splashViewed": "",
+  "optionsManagerViewed": "5.1.4p2",
+  "splashViewed": "5.1.4p2",
   "disabled": false,
   "configVersion": {
     "major": 5,

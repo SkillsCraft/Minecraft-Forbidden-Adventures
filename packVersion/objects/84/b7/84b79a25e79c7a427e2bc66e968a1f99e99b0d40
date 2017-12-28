@@ -4,6 +4,10 @@ import mods.nei.NEI;
 
 print("Initializing 'InfinityPackWideChanges.zs'...");
 
+#Disable HQM
+recipes.remove(<HardcoreQuesting:quest_book>);
+NEI.hide(<HardcoreQuesting:quest_book>);
+
 #Hide unobtainable items from NEI
 NEI.hide(<MCA:BlockVillagerBedRed>);
 NEI.hide(<MCA:BlockVillagerBedBlue>);
