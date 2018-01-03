@@ -4,6 +4,158 @@ import mods.nei.NEI;
 
 print("Initializing 'InfinityPackWideChanges.zs'...");
 
+#OreDict variables
+
+val cobblestoneBlock = <ore:cobblestone>;
+val redstoneDust = <ore:dustRedstone>;
+val obsidianBlock = <ore:blockObsidian>;
+val livingrock = <ore:livingrock>;
+val ironIngot = <ore:ingotIron>;
+val goldIngot = <ore:ingotGold>;
+val emeraldGem = <ore:gemEmerald>;
+val draconiumIngot = <ore:ingotDraconium>;
+val blazeRod = <ore:rodBlaze>;
+val pearlMana = <ore:manaPearl>;
+val enderEyePearl = <ore:pearlEnderEye>;
+val manaRuneB = <ore:runeManaB>;
+val plasticSheet = <ore:sheetPlastic>;
+val EIOMachineChassi = <ore:itemMachineChassi>;
+
+#Brewing Stand fix
+recipes.remove(<minecraft:brewing_stand>);
+<minecraft:brewing_stand>.addTooltip(format.yellow("This Brewing Stand is deprecated."));
+<minecraft:brewing_stand>.addTooltip(format.yellow("Use Et Futurum's Brewing Stand instead."));
+<minecraft:brewing_stand>.addTooltip(format.yellow("Place this Brewing Stand in a"));
+<minecraft:brewing_stand>.addTooltip(format.yellow("crafting grid to update it."));
+recipes.remove(<etfuturum:brewing_stand>);
+recipes.addShaped(<etfuturum:brewing_stand>,
+ [[null, blazeRod, null],
+  [cobblestoneBlock, cobblestoneBlock, cobblestoneBlock]]);
+recipes.addShapeless(<etfuturum:brewing_stand>, [<minecraft:brewing_stand>]);
+
+  
+recipes.addShaped(<Botania:alchemyCatalyst>,
+ [[livingrock, goldIngot, livingrock],
+  [<etfuturum:brewing_stand>, pearlMana, <etfuturum:brewing_stand>],
+  [livingrock, goldIngot, livingrock]]);
+  
+recipes.addShaped(<Botania:brewery>,
+ [[livingrock, <etfuturum:brewing_stand>, livingrock],
+  [livingrock, manaRuneB, livingrock],
+  [livingrock, <Botania:storage:0>, livingrock]]);
+  
+recipes.addShaped(<MineFactoryReloaded:machine.2:5>,
+ [[plasticSheet, <etfuturum:brewing_stand>, plasticSheet],
+  [<MineFactoryReloaded:cable.plastic>, <ThermalExpansion:Frame:0>, <MineFactoryReloaded:cable.plastic>],
+  [<minecraft:repeater>, <ThermalExpansion:material:1>, <minecraft:repeater>]]);
+
+recipes.addShaped(<MineFactoryReloaded:machine.2:5>,
+ [[plasticSheet, <etfuturum:brewing_stand>, plasticSheet],
+  [<EnderIO:itemLiquidConduit:0>, EIOMachineChassi, <EnderIO:itemLiquidConduit:0>],
+  [<minecraft:repeater>, redstoneDust, <minecraft:repeater>]]);
+
+mods.bloodmagic.BloodOrb.addShaped(<AWWayofTime:blockWritingTable>, [[null, <etfuturum:brewing_stand>, null],
+  [obsidianBlock, <AWWayofTime:weakBloodOrb>, obsidianBlock]]);
+
+mods.bloodmagic.BloodOrb.addShaped(<AWWayofTime:blockWritingTable>, [[null, null,null],
+  [null, <etfuturum:brewing_stand>, null],
+  [obsidianBlock, <AWWayofTime:weakBloodOrb>, obsidianBlock]]);
+  
+#Enchantment Table fix
+recipes.remove(<minecraft:enchanting_table>);
+<minecraft:enchanting_table>.addTooltip(format.yellow("This Enchantment Table is deprecated."));
+<minecraft:enchanting_table>.addTooltip(format.yellow("Use Et Futurum's Enchantment Table instead."));
+<minecraft:enchanting_table>.addTooltip(format.yellow("Place this Enchantment Table in a"));
+<minecraft:enchanting_table>.addTooltip(format.yellow("crafting grid to update it."));
+
+recipes.addShaped(<ExtraUtilities:generator:6>,
+ [[obsidianBlock, obsidianBlock, obsidianBlock],
+  [obsidianBlock, <etfuturum:enchantment_table>, obsidianBlock],
+  [redstoneDust, <minecraft:furnace>, redstoneDust]]);
+
+recipes.addShaped(<StevesCarts:upgrade:2>,
+ [[<minecraft:book>, <minecraft:bookshelf>, <minecraft:book>],
+  [<minecraft:bookshelf>, <etfuturum:enchantment_table>, <minecraft:bookshelf>],
+  [<StevesCarts:ModuleComponents:22>, <StevesCarts:ModuleComponents:59>, <StevesCarts:ModuleComponents:22>]]);
+
+recipes.addShaped(<StevesCarts:CartModule:82>,
+ [[null, <StevesCarts:ModuleComponents:47>, null],
+  [<minecraft:book>, <etfuturum:enchantment_table>, <minecraft:book>],
+  [redstoneDust, <StevesCarts:ModuleComponents:16>, redstoneDust]]);
+
+recipes.addShaped(<OpenBlocks:autoenchantmenttable>,
+ [[ironIngot, ironIngot, ironIngot],
+  [ironIngot, <etfuturum:enchantment_table>, ironIngot],
+  [redstoneDust, redstoneDust, redstoneDust]]);
+
+recipes.addShaped(<DraconicEvolution:weatherController>,
+ [[blazeRod, draconiumIngot, blazeRod],
+  [<minecraft:tnt>, <DraconicEvolution:draconicCore>, <minecraft:tnt>],
+  [draconiumIngot, <etfuturum:enchantment_table>, draconiumIngot]]);
+
+recipes.addShaped(<DraconicEvolution:energyInfuser>,
+ [[draconiumIngot, <DraconicEvolution:particleGenerator>, draconiumIngot],
+  [<DraconicEvolution:draconicCore>, <etfuturum:enchantment_table>, <DraconicEvolution:draconicCore>],
+  [draconiumIngot, <DraconicEvolution:draconicCore>, draconiumIngot]]);
+
+recipes.addShaped(<DraconicEvolution:dissEnchanter>,
+ [[enderEyePearl, <minecraft:enchanted_book>, enderEyePearl],
+  [emeraldGem, <etfuturum:enchantment_table>, emeraldGem],
+  [<DraconicEvolution:draconicCore>, <minecraft:book>, <DraconicEvolution:draconicCore>]]);
+
+recipes.addShaped(<DraconicEvolution:sunDial>,
+ [[draconiumIngot, <DraconicEvolution:awakenedCore>, draconiumIngot],
+  [<DraconicEvolution:draconicCore>, <minecraft:dragon_egg>, <DraconicEvolution:draconicCore>],
+  [draconiumIngot, <etfuturum:enchantment_table>, draconiumIngot]]);
+
+mods.tconstruct.Smeltery.addMelting(<etfuturum:enchantment_table>, <liquid:obsidian.molten> * 576, 750, <minecraft:obsidian>);
+
+#Minecraft Beacon Tooltip
+<minecraft:beacon>.addTooltip(format.yellow("This Beacon is from vanilla"));
+<minecraft:beacon>.addTooltip(format.yellow("Minecraft, and can be used"));
+<minecraft:beacon>.addTooltip(format.yellow("for crafting. However, it"));
+<minecraft:beacon>.addTooltip(format.yellow("it will not output colored"));
+<minecraft:beacon>.addTooltip(format.yellow("beams of light."));
+<minecraft:beacon>.addTooltip(format.yellow(""));
+<minecraft:beacon>.addTooltip(format.yellow("In order to use colored,"));
+<minecraft:beacon>.addTooltip(format.yellow("beams of light, place this"));
+<minecraft:beacon>.addTooltip(format.yellow("Beacon in a crafting grid to"));
+<minecraft:beacon>.addTooltip(format.yellow("convert it to the Et Futurum"));
+<minecraft:beacon>.addTooltip(format.yellow("Beacon."));
+
+#Et Futurum Beacon Tooltip
+<etfuturum:beacon>.addTooltip(format.yellow("This Beacon is from Et Futurum,"));
+<etfuturum:beacon>.addTooltip(format.yellow("and can output colored beams."));
+<etfuturum:beacon>.addTooltip(format.yellow("of light. However, it cannot be"));
+<etfuturum:beacon>.addTooltip(format.yellow("used for crafting."));
+<etfuturum:beacon>.addTooltip(format.yellow(""));
+<etfuturum:beacon>.addTooltip(format.yellow("In order to craft with this"));
+<etfuturum:beacon>.addTooltip(format.yellow("Beacon, place this Beacon"));
+<etfuturum:beacon>.addTooltip(format.yellow("in a crafting grid to convert"));
+<etfuturum:beacon>.addTooltip(format.yellow("it to the vanilla Minecraft Beacon."));
+
+#Minecraft Daylight Sensor Tooltip
+<minecraft:daylight_detector>.addTooltip(format.yellow("This Daylight Sensor is from"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("vanilla Minecraft, and can be"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("used for crafting. However, it"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("cannot be inverted."));
+<minecraft:daylight_detector>.addTooltip(format.yellow(""));
+<minecraft:daylight_detector>.addTooltip(format.yellow("In order to invert this Daylight"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("Sensor, place this in a crafting"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("grid to convert it to the"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("Et Futurum Daylight Sensor."));
+
+#Et Futurum Daylight Sensor Tooltip
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("This Daylight Sensor is from"));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("Et Futurum, and can be inverted."));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("However, it cannot be used"));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("for crafting."));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow(""));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("In order to craft with this Daylight"));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("Sensor, place this in a crafting"));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("grid to convert it to the"));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("vanilla Minecraft Daylight Sensor."));
+
 #Disable HQM
 recipes.remove(<HardcoreQuesting:quest_book>);
 NEI.hide(<HardcoreQuesting:quest_book>);
