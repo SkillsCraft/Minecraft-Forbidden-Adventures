@@ -4,7 +4,7 @@
         "title":
         {
             "image" : "textures:menu/logo.png",
-            "posX" : -122,
+            "posX" : -131,
             "posY" : 25,
             "width" : 256,
             "height" : 101,
@@ -14,51 +14,56 @@
     
     "buttons":
     {
-        "play":
+        "hamachi":
         {
             "text" : "",
-            "posX" : -140,
-            "posY" : 50,
-            "width" : 291,
-            "height" : 95,
-            "texture" : "textures:menu/play.png",
+            "posX" : -210,
+            "posY" : 45,
+            "width" : 128,
+            "height" : 128,
+            "tooltip" : "\u00a7a\u00a7lPlay via \u00a7b\u00a7lHamachi",
+            "texture" : "textures:menu/hamachi.png",
+            "action" : 
+            {
+                "type" : "connectToServer",
+                "ip" : "25.80.249.151"
+            }
+        },
+        "evolve":
+        {
+            "text" : "",
+            "posX" : -67,
+            "posY" : 45,
+            "width" : 128,
+            "height" : 128,
+            "tooltip" : "\u00a7a\u00a7lPlay via \u00a7c\u00a7lEvolve",
+            "texture" : "textures:menu/evolve.png",
             "action" : 
             {
                 "type" : "connectToServer",
                 "ip" : "10.156.43.2"
             }
         },
-        "account":
+        "lan":
         {
             "text" : "",
-            "posX" : -35,
-            "posY" : 175,
-            "width" : 64,
-            "height" : 64,
-            "tooltip" : "Change Account\n\u00a7eCurrently logged in as \u00a7a\u00a7l#username#",
-            "texture" : "textures:menu/account.png",
-            "wrappedButton" : 17325
-        },
-        "options":
-        {
-            "text" : "",
-            "posX" : -115,
-            "posY" : 175,
-            "width" : 64,
-            "height" : 64,
-            "tooltip" : "Options",
-            "texture" : "textures:menu/options.png",
+            "posX" : 75,
+            "posY" : 45,
+            "width" : 128,
+            "height" : 128,
+            "tooltip" : "\u00a7a\u00a7lPlay via \u00a7e\u00a7lLAN",
+            "texture" : "textures:menu/lan.png",
             "action" : 
             {
-                "type" : "openGui",
-                "gui" : "options"
+                "type" : "connectToServer",
+                "ip" : "192.168.29.188"
             }
-        },
+          },
         "issuetracker":
         {
             "text" : "",
-            "posX" : 170,
-            "posY" : 25,
+            "posX" : 165,
+            "posY" : -75,
             "width" : 128,
             "height" : 128,
             "tooltip" : "Report a Bug/Issue Tracker",
@@ -68,11 +73,12 @@
                 "type" : "openLink",
                 "link" : "https://github.com/SkillsCraft/Minecraft-Forbidden-Adventures/issues"
             }
-        },        "wiki":
+        },        
+        "wiki":
         {
             "text" : "",
-            "posX" : -290,
-            "posY" : 25,
+            "posX" : -300,
+            "posY" : -75,
             "width" : 128,
             "height" : 128,
             "tooltip" : "Minecraft: Forbidden Adventures Wiki",
@@ -83,11 +89,37 @@
                 "link" : "https://github.com/SkillsCraft/Minecraft-Forbidden-Adventures/wiki"
             }
         },
+        "account":
+        {
+            "text" : "",
+            "posX" : -35,
+            "posY" : 180,
+            "width" : 64,
+            "height" : 64,
+            "tooltip" : "Change Account\n\u00a7eCurrently logged in as \u00a7a\u00a7l#username#",
+            "texture" : "textures:menu/account.png",
+            "wrappedButton" : 17325
+        },
+        "options":
+        {
+            "text" : "",
+            "posX" : -115,
+            "posY" : 180,
+            "width" : 64,
+            "height" : 64,
+            "tooltip" : "Options",
+            "texture" : "textures:menu/options.png",
+            "action" : 
+            {
+                "type" : "openGui",
+                "gui" : "options"
+            }
+        },
         "exit":
         {
             "text" : "",
-            "posX" : 50,
-            "posY" : 175,
+            "posX" : 45,
+            "posY" : 180,
             "width" : 64,
             "height" : 64,
             "tooltip" : "Exit Game",
@@ -138,11 +170,11 @@
         },
         "version":
         {
-            "text" : "\u00a7aRelease Candidate \u00a7b\u00a7lVer. 1.1.7",
+            "text" : "\u00a7a\u00a7lVersion 1.1.8",
             "posX" : 2,
             "posY" : -20,
             "color" : -1,
-            "hoverText" : "\u00a7a\u00a7nClick to view changelog.\u00a7f\u00a7l | \u00a7bBuild ID: \u00a7d\u00a7nMFA-RC1.1.7",
+            "hoverText" : "\u00a7a\u00a7l\u00a7nVersion 1.1.8 Changelog",
             "alignment" : "bottom_left",
             "action" : 
             {
@@ -155,13 +187,7 @@
             "text" : "\u00a7fA \u00a7b\u00a7lSkills\u00a7f\u00a7lCraft\u00a76\u00a7l Network\u00a7f Production",
             "posX" : 2,
             "posY" : -10,
-            "hoverText" : "\u00a7f\u00a7nClick to visit the\u00a7r \u00a7b\u00a7l\u00a7nSkills\u00a7f\u00a7l\u00a7nCraft\u00a76\u00a7l \u00a7nNetwork\u00a7r \u00a7f\u00a7nwebsite.",
-            "alignment" : "bottom_left",
-            "action" : 
-            {
-                "type" : "openLink",
-                "link" : "www.sites.google.com/view/skillscraft"
-            }
+            "alignment" : "bottom_left"
         }
     },
     
