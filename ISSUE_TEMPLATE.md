@@ -14,7 +14,19 @@
 - [ ] Quest Crafting Completion <An administrator will verify that you have crafted the item. Provide evidence in the description that you have the item.>
 - [ ] Other issue: <Name your issue next to the asterisks in the space below this line. End your response with two asterisks.>
 **
-  
+ # Description #
+<Describe your issue in the space above the three dashes. Do not type on the dashes. Provide evidence if necessary. If you need to provide images upload them on Imgur and post a link here. >
+
+
+
+
+
+
+
+
+
+
+---
 ## Minecraft Username ##
 
 ## Game Version ##
@@ -27,6 +39,3 @@
 ## Have you done everything you can to solve the issue yourself? ##
 
 ## Have you checked to make sure the issue doesn't already exist in the Issue Tracker? ##
-
-# Description #
-<Describe your issue in the lines below. Provide evidence if necessary.>
