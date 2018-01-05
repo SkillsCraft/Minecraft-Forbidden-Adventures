@@ -15,7 +15,7 @@
 - [ ] Other issue: <Name your issue next to the asterisks in the space below this line. End your response with two asterisks.>
 **
 # Description #
-<Describe your issue in the space above the three dashes. Do not type on the dashes. Provide evidence if necessary. Drag and drop files here to upload them.>
+<Describe your issue in the space above the three dashes. Do not type on the dashes. Provide evidence if necessary. Drag and drop images here to upload them.>
 
 
 
