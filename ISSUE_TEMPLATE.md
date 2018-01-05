@@ -14,6 +14,11 @@
 - [ ] Quest Crafting Completion <An administrator will verify that you have crafted the item. Provide evidence in the description that you have the item.>
 - [ ] Other issue: <Name your issue next to the asterisks in the space below this line. End your response with two asterisks.>
 **
+  
+## Minecraft Username ##
+
+## Game Version ##
+
 ## Have you added or removed any mods or resource packs? ##
 <Please list the mods or resource packs that you have added or removed if your answer is Yes.>
 
