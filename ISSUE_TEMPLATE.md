@@ -14,15 +14,8 @@
 - [ ] Quest Crafting Completion <An administrator will verify that you have crafted the item. Provide evidence in the description that you have the item.>
 - [ ] Other issue: <Name your issue next to the asterisks in the space below this line. End your response with two asterisks.>
 **
- # Description #
-<Describe your issue in the space above the three dashes. Do not type on the dashes. Provide evidence if necessary. If you need to provide images upload them on Imgur and post a link here. >
-
-
-
-
-
-
-
+# Description #
+<Describe your issue in the space above the three dashes. Do not type on the dashes. Provide evidence if necessary. Upload images on Imgur and include the direct link to the image if you need to attach images.>
 
 
 
