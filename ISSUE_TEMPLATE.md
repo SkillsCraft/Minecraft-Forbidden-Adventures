@@ -27,9 +27,9 @@
 ## Have you added or removed any mods or resource packs? ##
 <Please list the mods or resource packs that you have added or removed if your answer is Yes.>
 
-## Is your Chunk Loading option in the Options set to Default? ##
+## Have you done everything you can to solve the issue yourself? ##
 <If the answers for this question and the following questions are No do not submit an Issue until you can say Yes to all three.>
 
-## Have you done everything you can to solve the issue yourself? ##
-
 ## Have you checked to make sure the issue doesn't already exist in the Issue Tracker? ##
+
+## Is your Chunk Loading option in the Options set to Default? ##
