@@ -11,7 +11,7 @@
 - [ ] Report a Bug or Glitch <Please go in detail about how to reproduce the bug or glitch in the description.>
 - [ ] Report a Player <Provide evidence and describe how the player broke the rules.>
 - [ ] Make a Suggestion <Describe what you would like to see added in SkillsCraft Network.>
-- [ ] Quest Crafting Completion <An administrator will verify that you have crafted the item. Provide evidence in the description that you have the item.>
+- [ ] Quest Crafting Completion <Please provide the questline and quest you need help with in the description. An administrator will verify that you have crafted the item. Provide evidence in the description that you have the item.>
 - [ ] Other issue: <Name your issue next to the asterisks in the space below this line. End your response with two asterisks.>
 **
 # Description #
