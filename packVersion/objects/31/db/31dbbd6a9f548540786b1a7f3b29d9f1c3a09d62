@@ -43,7 +43,7 @@ ofStars:true
 ofSunMoon:true
 ofVignette:2
 ofChunkUpdates:1
-ofChunkLoading:1
+ofChunkLoading:0
 ofChunkUpdatesDynamic:false
 ofTime:0
 ofClearWater:false

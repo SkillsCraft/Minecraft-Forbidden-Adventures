@@ -170,11 +170,11 @@
         },
         "version":
         {
-            "text" : "\u00a7a\u00a7lVersion 1.1.10",
+            "text" : "\u00a7a\u00a7lVersion 1.1.11",
             "posX" : 2,
             "posY" : -20,
             "color" : -1,
-            "hoverText" : "\u00a7a\u00a7l\u00a7nVersion 1.1.10 Changelog",
+            "hoverText" : "\u00a7a\u00a7l\u00a7nVersion 1.1.11 Changelog",
             "alignment" : "bottom_left",
             "action" : 
             {
