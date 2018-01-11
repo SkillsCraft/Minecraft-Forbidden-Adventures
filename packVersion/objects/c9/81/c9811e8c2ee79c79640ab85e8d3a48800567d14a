@@ -4,8 +4,46 @@ import mods.nei.NEI;
 
 print("Initializing 'InfinityPackWideChanges.zs'...");
 
-#OreDict variables
+#Clarify things about pumps
+<BuildCraft|Factory:pumpBlock>.addTooltip(format.yellow("Do not use this pump in the"));
+<BuildCraft|Factory:pumpBlock>.addTooltip(format.yellow("Nether to pump out lava."));
+<BuildCraft|Factory:pumpBlock>.addTooltip(format.yellow("Use the Ender-Thermic"));
+<BuildCraft|Factory:pumpBlock>.addTooltip(format.yellow("Pump instead. Violators"));
+<BuildCraft|Factory:pumpBlock>.addTooltip(format.yellow("will be punished."));
 
+<IC2:blockMachine:8>.addTooltip(format.yellow("Do not use this pump in the"));
+<IC2:blockMachine:8>.addTooltip(format.yellow("Nether to pump out lava."));
+<IC2:blockMachine:8>.addTooltip(format.yellow("Use the Ender-Thermic"));
+<IC2:blockMachine:8>.addTooltip(format.yellow("Pump instead. Violators"));
+<IC2:blockMachine:8>.addTooltip(format.yellow("will be punished."));
+
+#Disable Quarry
+recipes.remove(<BuildCraft|Builders:machineBlock>);
+<BuildCraft|Builders:machineBlock>.addTooltip(format.yellow("The BuildCraft Quarry is disabled."));
+<BuildCraft|Builders:machineBlock>.addTooltip(format.yellow("Use the Ender Quarry instead."));
+
+#Clarify chunk loading with Ender Quarry and Ender-Thermic Pump
+<ExtraUtilities:enderThermicPump>.addTooltip(format.yellow("This pump may only be used"));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.yellow("in the Nether to pump Lava out."));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.red(""));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.red("Using this as a chunk loader"));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.red("alone will result in a permanent"));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.red("ban, no questions asked."));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.darkRed(format.bold("You have been warned.")));
+
+<ExtraUtilities:enderQuarry>.addTooltip(format.yellow("The Ender Quarry may only be used"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.yellow("in MystCraft ages, the Deep Dark,"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.yellow("or in the mining dimension. Only one"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.yellow("Ender Quarry is allowed per player."));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("Using the Ender Quarry anywhere"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("else or using more than one Ender"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("Quarry will cause the offending Ender"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("Quarries to be removed without warning."));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red(""));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("Using the Ender Quarry as a chunk loader"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("alone will result in a ") + (format.darkRed(format.bold("PERMANENT BAN."))));
+<ExtraUtilities:enderQuarry>.addTooltip(format.darkRed(format.bold("You have been warned.")));
+#OreDict variables
 val cobblestoneBlock = <ore:cobblestone>;
 val redstoneDust = <ore:dustRedstone>;
 val obsidianBlock = <ore:blockObsidian>;
@@ -20,6 +58,175 @@ val enderEyePearl = <ore:pearlEnderEye>;
 val manaRuneB = <ore:runeManaB>;
 val plasticSheet = <ore:sheetPlastic>;
 val EIOMachineChassi = <ore:itemMachineChassi>;
+val slimeBall = <ore:slimeball>;
+
+#Creative Variables
+val nI = <Avaritia:Resource:4>;
+val iI = <Avaritia:Resource:6>;
+val iC = <Avaritia:Infinity_Chest>;
+val iS = <Avaritia:Resource:5>;
+val iB = <Avaritia:Resource_Block:1>;
+val MFSU = <IC2:blockElectric:2>;
+val QSP = <AdvancedSolarPanel:BlockAdvSolarPanel:3>;
+
+#TE Creative Energy Cell
+mods.avaritia.ExtremeCrafting.remove(<ThermalExpansion:Cell:0>);
+val rS = <Avaritia:Singularity:3>;
+mods.avaritia.ExtremeCrafting.addShaped(<ThermalExpansion:Cell:0>,
+ [[rS, iI, iI, iI, iI, iI, iI, iI, rS],
+  [iI, iI, iC, iC, iI, iC, iC, iI, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, rS, rS, iI, <ThermalExpansion:Cell:4>, iI, rS, rS, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iI, iC, iI, iB, iI, iC, iI, iI],
+  [rS, iI, iI, iI, iI, iI, iI, iI, rS]]);
+
+#Creative Flux Capacitor
+mods.avaritia.ExtremeCrafting.addShaped(<ThermalExpansion:capacitor:0>,
+ [[rS, iI, iI, iI, iI, iI, iI, iI, rS],
+  [iI, iI, iC, iC, iI, iC, iC, iI, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, rS, rS, iI, <ThermalExpansion:capacitor:5>, iI, rS, rS, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iI, iC, iI, iB, iI, iC, iI, iI],
+  [rS, iI, iI, iI, iI, iI, iI, iI, rS]]);
+
+#Creative Flux Pack
+mods.avaritia.ExtremeCrafting.addShaped(<simplyjetpacks:fluxpacksCommon:9001>,
+ [[rS, iI, iI, iI, iI, iI, iI, iI, rS],
+  [iI, iI, iC, iC, iI, iC, iC, iI, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, rS, rS, iI, <simplyjetpacks:fluxpacks:104>, iI, rS, rS, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iI, iC, iI, iB, iI, iC, iI, iI],
+  [rS, iI, iI, iI, iI, iI, iI, iI, rS]]);
+
+#Creative Jetpack
+val NLP = <TConstruct:heavyPlate:500>;
+mods.avaritia.ExtremeCrafting.addShaped(<simplyjetpacks:jetpacksCommon:9001>,
+ [[null, iI, null, null, null, null, null, iI, null],
+  [iI, iI, iI, null, null, null, iI, iI, iI],
+  [iI, iS, iI, null, null, null, iI, iS, iI],
+  [iI, iS, iI, NLP, NLP, NLP, iI, iS, iI],
+  [iI, <simplyjetpacks:jetpacks:5>, <TConstruct:heavyPlate:501>, <GraviSuite:itemSimpleItem:1>, <ThermalExpansion:capacitor:0>, <GraviSuite:itemSimpleItem:1>, <TConstruct:heavyPlate:501>, <simplyjetpacks:jetpacks:5>, iI],
+  [iI, iS, iI, NLP, NLP, NLP, iI, iS, iI],
+  [iI, iS, iI, null, null, null, iI, iS, iI],
+  [null, iI, null, null, null, null, null, iI, null],
+  [iI, iI, iI, null, null, null, iI, iI, iI]]);
+
+#Quantum Generator
+mods.avaritia.ExtremeCrafting.addShaped(<AdvancedSolarPanel:BlockAdvSolarPanel:4>,
+ [[QSP, MFSU, MFSU, MFSU, QSP, MFSU, MFSU, MFSU, QSP],
+  [MFSU, QSP, iC, iC, QSP, iC, iC, QSP, MFSU],
+  [MFSU, iC, QSP, QSP, QSP, QSP, QSP, iC, MFSU],
+  [MFSU, iC, QSP, <IC2:itemPartIridium>, QSP, <IC2:itemPartIridium>, QSP, iC, MFSU],
+  [QSP, QSP, QSP, QSP, <IC2:blockGenerator:5>, QSP, QSP, QSP, QSP],
+  [MFSU, iC, QSP, <IC2:itemPartIridium>, QSP, <IC2:itemPartIridium>, QSP, iC, MFSU],
+  [MFSU, iC, QSP, QSP, QSP, QSP, QSP, iC, MFSU],
+  [MFSU, QSP, iC, iC, QSP, iC, iC, QSP, MFSU],
+  [QSP, MFSU, MFSU, MFSU, QSP, MFSU, MFSU, MFSU, QSP]]);
+
+#Mana Tablet
+val FMP = <Botania:pool:3>;
+val TB = <Botania:storage:1>;
+val TI = <Botania:manaResource:4>;
+mods.avaritia.ExtremeCrafting.addShaped(<Botania:manaTablet>.withTag({creative: true, mana: 500000}),
+ [[<Botania:rune:14>, iC, iC, TI, <Botania:rune:10>, TI, iC, iC, <Botania:rune:7>],
+  [iC, FMP, FMP, <Botania:infiniteFruit>, <Botania:flightTiara:0>, <Botania:kingKey>, FMP, FMP, iC],
+  [iC, FMP, TB, TB, <Botania:flugelEye>, TB, TB, FMP, iC],
+  [TI, <Botania:odinRing>, TB, <Botania:spawnerMover>, <Botania:manaMirror>, <Botania:spawnerMover>, TB, <Botania:thorRing>, TI],
+  [<Botania:rune:9>, TB, <Botania:flugelEye>, <Botania:manaMirror>, <Botania:manaTablet>, <Botania:manaMirror>, <Botania:flugelEye>, TB, <Botania:rune:15>],
+  [TI, <Botania:dice>, TB, <Botania:spawnerMover>, <Botania:manaMirror>, <Botania:spawnerMover>, TB, <Botania:dice>, TI],
+  [iC, FMP, TB, TB, <Botania:flugelEye>, TB, TB, FMP, iC],
+  [iC, FMP, FMP, <Botania:dice>, TB, <Botania:dice>, FMP, FMP, iC],
+  [<Botania:rune:13>, iC, iC, TI, <Botania:rune:11>, TI, iC, iC, <Botania:rune:12>]]);
+
+#Everlasting Brew
+mods.avaritia.ExtremeCrafting.addShaped(<skillscraft:item.EverlastingWater>,
+ [[<Botania:rune:14>, iC, iC, TI, <Botania:rune:10>, TI, iC, iC, <Botania:rune:7>],
+  [iC, FMP, FMP, <Botania:infiniteFruit>, <Botania:flightTiara:0>, <Botania:kingKey>, FMP, FMP, iC],
+  [iC, FMP, TB, TB, <Botania:flugelEye>, TB, TB, FMP, iC],
+  [TI, <Botania:odinRing>, TB, <Botania:spawnerMover>, <Botania:manaMirror>, <Botania:spawnerMover>, TB, <Botania:thorRing>, TI],
+  [<Botania:rune:9>, TB, <Botania:flugelEye>, <Botania:manaMirror>, <minecraft:water_bucket>, <Botania:manaMirror>, <Botania:flugelEye>, TB, <Botania:rune:15>],
+  [TI, <Botania:dice>, TB, <Botania:spawnerMover>, <Botania:manaMirror>, <Botania:spawnerMover>, TB, <Botania:dice>, TI],
+  [iC, FMP, TB, TB, <Botania:flugelEye>, TB, TB, FMP, iC],
+  [iC, FMP, FMP, <Botania:dice>, TB, <Botania:dice>, FMP, FMP, iC],
+  [<Botania:rune:13>, iC, iC, TI, <Botania:rune:11>, TI, iC, iC, <Botania:rune:12>]]);
+
+#The Everlasting Guilty Pool recipe is baked into the SkillsCraft Mod.
+
+#AE2 Creative Energy Cell
+mods.avaritia.ExtremeCrafting.remove(<appliedenergistics2:tile.BlockCreativeEnergyCell>);
+val DES = <appliedenergistics2:tile.BlockDenseEnergyCell>;
+val EP = <appliedenergistics2:item.ItemMultiMaterial:24>;
+val SG = <appliedenergistics2:item.ItemMultiMaterial:47>;
+val QS = <appliedenergistics2:item.ItemMultiMaterial:48>;
+val MS = <extracells:storage.component:3>;
+mods.avaritia.ExtremeCrafting.addShaped(<appliedenergistics2:tile.BlockCreativeEnergyCell>,
+ [[SG, iI, iI, iI, QS, iI, iI, iI, SG],
+  [iI, iC, DES, DES, EP, DES, DES, iC, iI],
+  [iI, DES, iC, DES, DES, DES, iC, DES, iI],
+  [iI, DES, DES, iC, EP, iC, DES, DES, iI],
+  [iC, EP, DES, EP, MS, EP, DES, EP, iC],
+  [iI, DES, DES, iC, EP, iC, DES, DES, iI],
+  [iI, DES, iC, DES, DES, DES, iC, DES, iI],
+  [iI, iC, DES, DES, EP, DES, DES, iC, iI],
+  [SG, iI, iI, iI, iC, iI, iI, iI, SG]]);
+
+#Creative Tool Modifier
+val SJ = <TConstruct:materials:26>;
+val BM = <TConstruct:materials:6>;
+val MI = <TConstruct:materials:5>;
+val MB = <TConstruct:MetalBlock:2>;
+mods.avaritia.ExtremeCrafting.addShaped(<TConstruct:creativeModifier>,
+ [[SJ, SJ, NLP, BM, BM, BM, NLP, SJ, SJ],
+  [SJ, MI, MI, MI, MI, MI, MI, MI, SJ],
+  [NLP, MI, NLP, iI, iI, iI, NLP, MI, NLP],
+  [BM, MI, iI, iI, iI, iI, iI, MI, BM],
+  [BM, MI, iI, iI, <ore:itemSkull>, iI, iI, MI, BM],
+  [BM, MI, iI, iI, iI, iI, iI, MI, BM],
+  [NLP, MI, NLP, iI, iI, iI, NLP, MI, NLP],
+  [SJ, MI, MI, MI, MI, MI, MI, MI, SJ],
+  [SJ, SJ, NLP, BM, BM, BM, NLP, SJ, SJ]]);
+
+#Infinity Egg
+mods.avaritia.ExtremeCrafting.remove(<witchery:infinityegg>);
+mods.avaritia.ExtremeCrafting.addShaped(<witchery:infinityegg>,
+ [[null, null, null, nI, nI, nI, null, null, null],
+  [null, null, nI, nI, nI, nI, nI, null, null],
+  [null, null, nI, nI, nI, nI, nI, null, null],
+  [null, nI, nI, nI, iI, nI, nI, nI, null],
+  [nI, nI, nI, iI, iI, iI, nI, nI, nI],
+  [nI, nI, iI, iI, <minecraft:dragon_egg>, iI, iI, nI, nI],
+  [nI, nI, nI, iI, iI, iI, nI, nI, nI],
+  [null, nI, nI, nI, iI, nI, nI, nI, null],
+  [null, null, nI, nI, nI, nI, nI, null, null]]);
+
+#Disable World Hole upgrade
+recipes.remove(<ExtraUtilities:enderQuarryUpgrade:1>);
+<ExtraUtilities:enderQuarryUpgrade:1>.addTooltip(format.yellow("The World Hole Upgrade is disabled."));
+
+#Remove Pink Slimeball from oredict
+slimeBall.remove(<MineFactoryReloaded:pinkslime>);
+slimeBall.remove(<TConstruct:strangeFood:0>);
+slimeBall.remove(<TConstruct:strangeFood:1>);
+slimeBall.remove(<TConstruct:materials:36>);
+
+#Disable ore dictionary converters
+recipes.remove(<ThermalFoundation:lexicon>);
+<ThermalFoundation:lexicon>.addTooltip(format.red("Ore dictionary converters are disabled."));
+recipes.remove(<MineFactoryReloaded:machine.1:8>);
+<MineFactoryReloaded:machine.1:8>.addTooltip(format.red("Ore dictionary converters are disabled."));
+
+#Disable ProjectRed Project Bench
+recipes.remove(<ProjRed|Expansion:projectred.expansion.machine2:10>);
+<ProjRed|Expansion:projectred.expansion.machine2:10>.addTooltip(format.red("The Project Bench has been disabled."));
 
 #Brewing Stand fix
 recipes.remove(<minecraft:brewing_stand>);
@@ -159,6 +366,11 @@ mods.tconstruct.Smeltery.addMelting(<etfuturum:enchantment_table>, <liquid:obsid
 #Disable HQM
 recipes.remove(<HardcoreQuesting:quest_book>);
 NEI.hide(<HardcoreQuesting:quest_book>);
+<HardcoreQuesting:quest_book>.addTooltip(format.green("Press the [~] key on your keyboard"));
+<HardcoreQuesting:quest_book>.addTooltip(format.green("to open the quest book at any time,"));
+<HardcoreQuesting:quest_book>.addTooltip(format.green("even if you don't have this quest"));
+<HardcoreQuesting:quest_book>.addTooltip(format.green("book on hand. This book does"));
+<HardcoreQuesting:quest_book>.addTooltip(format.green("nothing on it's own."));
 
 #Hide unobtainable items from NEI
 NEI.hide(<MCA:BlockVillagerBedRed>);
