@@ -22,27 +22,40 @@ recipes.remove(<BuildCraft|Builders:machineBlock>);
 <BuildCraft|Builders:machineBlock>.addTooltip(format.yellow("The BuildCraft Quarry is disabled."));
 <BuildCraft|Builders:machineBlock>.addTooltip(format.yellow("Use the Ender Quarry instead."));
 
+#Change Ender Quarry Recipe
+recipes.remove(<ExtraUtilities:enderQuarry>);
+recipes.addShaped(<ExtraUtilities:enderQuarry>,
+ [[<ExtraUtilities:decorativeBlock1:1>, <skillscraft:item.EnderQuarryTicket>, <ExtraUtilities:decorativeBlock1:1>],
+  [<ExtraUtilities:decorativeBlock1:11>, <ExtraUtilities:decorativeBlock1:12>, <ExtraUtilities:decorativeBlock1:11>],
+  [<ExtraUtilities:enderThermicPump>, <minecraft:diamond_pickaxe>, <ExtraUtilities:enderThermicPump>]]);
+
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.yellow("Purchase Ender Quarry Tickets in"));
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.yellow("the SkillsCraft Network Store."));
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.yellow(""));
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.green("Your first Ender Quarry Ticket is"));
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.green("FREE! Look under the Gifts questline"));
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.green("to claim your FREE Ender Quarry Ticket."));
+
 #Clarify chunk loading with Ender Quarry and Ender-Thermic Pump
-<ExtraUtilities:enderThermicPump>.addTooltip(format.yellow("This pump may only be used"));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.yellow("The Ender-Thermic Pump can be used"));
 <ExtraUtilities:enderThermicPump>.addTooltip(format.yellow("in the Nether to pump Lava out."));
 <ExtraUtilities:enderThermicPump>.addTooltip(format.red(""));
-<ExtraUtilities:enderThermicPump>.addTooltip(format.red("Using this as a chunk loader"));
-<ExtraUtilities:enderThermicPump>.addTooltip(format.red("alone will result in a permanent"));
-<ExtraUtilities:enderThermicPump>.addTooltip(format.red("ban, no questions asked."));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.red("Using the Ender-Thermic Pump as a chunk"));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.red("loader alone will result in a ") + (format.darkRed(format.bold("PERMANENT BAN."))));
 <ExtraUtilities:enderThermicPump>.addTooltip(format.darkRed(format.bold("You have been warned.")));
 
 <ExtraUtilities:enderQuarry>.addTooltip(format.yellow("The Ender Quarry may only be used"));
 <ExtraUtilities:enderQuarry>.addTooltip(format.yellow("in MystCraft ages, the Deep Dark,"));
-<ExtraUtilities:enderQuarry>.addTooltip(format.yellow("or in the mining dimension. Only one"));
-<ExtraUtilities:enderQuarry>.addTooltip(format.yellow("Ender Quarry is allowed per player."));
+<ExtraUtilities:enderQuarry>.addTooltip(format.yellow("or in the mining dimension."));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red(""));
 <ExtraUtilities:enderQuarry>.addTooltip(format.red("Using the Ender Quarry anywhere"));
-<ExtraUtilities:enderQuarry>.addTooltip(format.red("else or using more than one Ender"));
-<ExtraUtilities:enderQuarry>.addTooltip(format.red("Quarry will cause the offending Ender"));
-<ExtraUtilities:enderQuarry>.addTooltip(format.red("Quarries to be removed without warning."));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("else will cause the offending Ender"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("Quarry to be removed without warning."));
 <ExtraUtilities:enderQuarry>.addTooltip(format.red(""));
 <ExtraUtilities:enderQuarry>.addTooltip(format.red("Using the Ender Quarry as a chunk loader"));
 <ExtraUtilities:enderQuarry>.addTooltip(format.red("alone will result in a ") + (format.darkRed(format.bold("PERMANENT BAN."))));
 <ExtraUtilities:enderQuarry>.addTooltip(format.darkRed(format.bold("You have been warned.")));
+
 #OreDict variables
 val cobblestoneBlock = <ore:cobblestone>;
 val redstoneDust = <ore:dustRedstone>;
