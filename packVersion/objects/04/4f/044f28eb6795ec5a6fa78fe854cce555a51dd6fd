@@ -1,0 +1,8 @@
+# Ambience Config
+enabled=true
+
+event.mainMenu=menu
+event.nether=nether1,nether2,nether3,nether4,aethernether
+event.end=end1,end2,end3,end4,end5,end6,end7,end8
+event.boss=boss1,boss2
+event.generic=music1,music2,music3,music4,music5,music6,music7,music8,music9,music10,music11,music12,music13,creative1,creative2,creative3,creative4,creative5,creative6,aether1,aether2,aether3,aether4,aether5,aether6,aether7,aether8,aether9,aether10
