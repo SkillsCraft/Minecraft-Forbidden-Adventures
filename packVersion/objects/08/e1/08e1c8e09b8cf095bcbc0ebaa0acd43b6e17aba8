@@ -1,0 +1,545 @@
+#Name: InfinityPackWideChanges.zs
+#Author: Feed the Beast
+import mods.nei.NEI;
+
+print("Initializing 'InfinityPackWideChanges.zs'...");
+
+#Disable Harvestcraft Market
+recipes.remove(<harvestcraft:market>);
+<harvestcraft:market>.addTooltip(format.red("This item is disabled due to a duping bug."));
+#Disable Uncrafting Tables
+recipes.remove(<TwilightForest:tile.TFUncraftingTable>);
+<TwilightForest:tile.TFUncraftingTable>.addTooltip(format.red("Uncrafting tables are disabled."));
+recipes.remove(<HardcoreEnderExpansion:decomposition_table>);
+<HardcoreEnderExpansion:decomposition_table>.addTooltip(format.red("Uncrafting tables are disabled."));
+
+#Clarify things about pumps
+<BuildCraft|Factory:pumpBlock>.addTooltip(format.yellow("Do not use this pump in the"));
+<BuildCraft|Factory:pumpBlock>.addTooltip(format.yellow("Nether to pump out lava."));
+<BuildCraft|Factory:pumpBlock>.addTooltip(format.yellow("Use the Ender-Thermic"));
+<BuildCraft|Factory:pumpBlock>.addTooltip(format.yellow("Pump instead. Violators"));
+<BuildCraft|Factory:pumpBlock>.addTooltip(format.yellow("will be punished."));
+
+<IC2:blockMachine:8>.addTooltip(format.yellow("Do not use this pump in the"));
+<IC2:blockMachine:8>.addTooltip(format.yellow("Nether to pump out lava."));
+<IC2:blockMachine:8>.addTooltip(format.yellow("Use the Ender-Thermic"));
+<IC2:blockMachine:8>.addTooltip(format.yellow("Pump instead. Violators"));
+<IC2:blockMachine:8>.addTooltip(format.yellow("will be punished."));
+
+#Disable Quarry
+recipes.remove(<BuildCraft|Builders:machineBlock>);
+<BuildCraft|Builders:machineBlock>.addTooltip(format.yellow("The BuildCraft Quarry is disabled."));
+<BuildCraft|Builders:machineBlock>.addTooltip(format.yellow("Use the Ender Quarry instead."));
+
+#Change Ender Quarry Recipe
+recipes.remove(<ExtraUtilities:enderQuarry>);
+recipes.addShaped(<ExtraUtilities:enderQuarry>,
+ [[<ExtraUtilities:decorativeBlock1:1>, <skillscraft:item.EnderQuarryTicket>, <ExtraUtilities:decorativeBlock1:1>],
+  [<ExtraUtilities:decorativeBlock1:11>, <ExtraUtilities:decorativeBlock1:12>, <ExtraUtilities:decorativeBlock1:11>],
+  [<ExtraUtilities:enderThermicPump>, <minecraft:diamond_pickaxe>, <ExtraUtilities:enderThermicPump>]]);
+
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.yellow("Purchase Ender Quarry Tickets in"));
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.yellow("the SkillsCraft Network Store."));
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.yellow(""));
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.green("Your first Ender Quarry Ticket is"));
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.green("FREE! Look under the Gifts questline"));
+<skillscraft:item.EnderQuarryTicket>.addTooltip(format.green("to claim your FREE Ender Quarry Ticket."));
+
+#Clarify chunk loading with Ender Quarry and Ender-Thermic Pump
+<ExtraUtilities:enderThermicPump>.addTooltip(format.yellow("The Ender-Thermic Pump can be used"));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.yellow("in the Nether to pump Lava out."));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.red(""));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.red("Using the Ender-Thermic Pump as a chunk"));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.red("loader alone will result in a ") + (format.darkRed(format.bold("PERMANENT BAN."))));
+<ExtraUtilities:enderThermicPump>.addTooltip(format.darkRed(format.bold("You have been warned.")));
+
+<ExtraUtilities:enderQuarry>.addTooltip(format.yellow("The Ender Quarry may only be used"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.yellow("in MystCraft ages, the Deep Dark,"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.yellow("or in the mining dimension."));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red(""));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("Using the Ender Quarry anywhere"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("else will cause the offending Ender"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("Quarry to be removed without warning."));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red(""));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("Using the Ender Quarry as a chunk loader"));
+<ExtraUtilities:enderQuarry>.addTooltip(format.red("alone will result in a ") + (format.darkRed(format.bold("PERMANENT BAN."))));
+<ExtraUtilities:enderQuarry>.addTooltip(format.darkRed(format.bold("You have been warned.")));
+
+#OreDict variables
+val cobblestoneBlock = <ore:cobblestone>;
+val redstoneDust = <ore:dustRedstone>;
+val obsidianBlock = <ore:blockObsidian>;
+val livingrock = <ore:livingrock>;
+val ironIngot = <ore:ingotIron>;
+val goldIngot = <ore:ingotGold>;
+val emeraldGem = <ore:gemEmerald>;
+val draconiumIngot = <ore:ingotDraconium>;
+val blazeRod = <ore:rodBlaze>;
+val pearlMana = <ore:manaPearl>;
+val enderEyePearl = <ore:pearlEnderEye>;
+val manaRuneB = <ore:runeManaB>;
+val plasticSheet = <ore:sheetPlastic>;
+val EIOMachineChassi = <ore:itemMachineChassi>;
+val slimeBall = <ore:slimeball>;
+
+#Creative Variables
+val nI = <Avaritia:Resource:4>;
+val iI = <Avaritia:Resource:6>;
+val iC = <Avaritia:Infinity_Chest>;
+val iS = <Avaritia:Resource:5>;
+val iB = <Avaritia:Resource_Block:1>;
+val MFSU = <IC2:blockElectric:2>;
+val QSP = <AdvancedSolarPanel:BlockAdvSolarPanel:3>;
+
+#TE Creative Energy Cell
+mods.avaritia.ExtremeCrafting.remove(<ThermalExpansion:Cell:0>);
+val rS = <Avaritia:Singularity:3>;
+mods.avaritia.ExtremeCrafting.addShaped(<ThermalExpansion:Cell:0>,
+ [[rS, iI, iI, iI, iI, iI, iI, iI, rS],
+  [iI, iI, iC, iC, iI, iC, iC, iI, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, rS, rS, iI, <ThermalExpansion:Cell:4>, iI, rS, rS, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iI, iC, iI, iB, iI, iC, iI, iI],
+  [rS, iI, iI, iI, iI, iI, iI, iI, rS]]);
+
+#Creative Flux Capacitor
+mods.avaritia.ExtremeCrafting.addShaped(<ThermalExpansion:capacitor:0>,
+ [[rS, iI, iI, iI, iI, iI, iI, iI, rS],
+  [iI, iI, iC, iC, iI, iC, iC, iI, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, rS, rS, iI, <ThermalExpansion:capacitor:5>, iI, rS, rS, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iI, iC, iI, iB, iI, iC, iI, iI],
+  [rS, iI, iI, iI, iI, iI, iI, iI, rS]]);
+
+#Creative Flux Pack
+mods.avaritia.ExtremeCrafting.addShaped(<simplyjetpacks:fluxpacksCommon:9001>,
+ [[rS, iI, iI, iI, iI, iI, iI, iI, rS],
+  [iI, iI, iC, iC, iI, iC, iC, iI, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, rS, rS, iI, <simplyjetpacks:fluxpacks:104>, iI, rS, rS, iI],
+  [iI, iC, rS, rS, iI, rS, rS, iC, iI],
+  [iI, iC, rS, rS, rS, rS, rS, iC, iI],
+  [iI, iI, iC, iI, iB, iI, iC, iI, iI],
+  [rS, iI, iI, iI, iI, iI, iI, iI, rS]]);
+
+#Creative Jetpack
+val NLP = <TConstruct:heavyPlate:500>;
+mods.avaritia.ExtremeCrafting.addShaped(<simplyjetpacks:jetpacksCommon:9001>,
+ [[null, iI, null, null, null, null, null, iI, null],
+  [iI, iI, iI, null, null, null, iI, iI, iI],
+  [iI, iS, iI, null, null, null, iI, iS, iI],
+  [iI, iS, iI, NLP, NLP, NLP, iI, iS, iI],
+  [iI, <simplyjetpacks:jetpacks:5>, <TConstruct:heavyPlate:501>, <GraviSuite:itemSimpleItem:1>, <ThermalExpansion:capacitor:0>, <GraviSuite:itemSimpleItem:1>, <TConstruct:heavyPlate:501>, <simplyjetpacks:jetpacks:5>, iI],
+  [iI, iS, iI, NLP, NLP, NLP, iI, iS, iI],
+  [iI, iS, iI, null, null, null, iI, iS, iI],
+  [null, iI, null, null, null, null, null, iI, null],
+  [iI, iI, iI, null, null, null, iI, iI, iI]]);
+
+#Quantum Generator
+mods.avaritia.ExtremeCrafting.addShaped(<AdvancedSolarPanel:BlockAdvSolarPanel:4>,
+ [[QSP, MFSU, MFSU, MFSU, QSP, MFSU, MFSU, MFSU, QSP],
+  [MFSU, QSP, iC, iC, QSP, iC, iC, QSP, MFSU],
+  [MFSU, iC, QSP, QSP, QSP, QSP, QSP, iC, MFSU],
+  [MFSU, iC, QSP, <IC2:itemPartIridium>, QSP, <IC2:itemPartIridium>, QSP, iC, MFSU],
+  [QSP, QSP, QSP, QSP, <IC2:blockGenerator:5>, QSP, QSP, QSP, QSP],
+  [MFSU, iC, QSP, <IC2:itemPartIridium>, QSP, <IC2:itemPartIridium>, QSP, iC, MFSU],
+  [MFSU, iC, QSP, QSP, QSP, QSP, QSP, iC, MFSU],
+  [MFSU, QSP, iC, iC, QSP, iC, iC, QSP, MFSU],
+  [QSP, MFSU, MFSU, MFSU, QSP, MFSU, MFSU, MFSU, QSP]]);
+
+#Mana Tablet
+val FMP = <Botania:pool:3>;
+val TB = <Botania:storage:1>;
+val TI = <Botania:manaResource:4>;
+mods.avaritia.ExtremeCrafting.addShaped(<Botania:manaTablet>.withTag({creative: true, mana: 500000}),
+ [[<Botania:rune:14>, iC, iC, TI, <Botania:rune:10>, TI, iC, iC, <Botania:rune:7>],
+  [iC, FMP, FMP, <Botania:infiniteFruit>, <Botania:flightTiara:0>, <Botania:kingKey>, FMP, FMP, iC],
+  [iC, FMP, TB, TB, <Botania:flugelEye>, TB, TB, FMP, iC],
+  [TI, <Botania:odinRing>, TB, <Botania:spawnerMover>, <Botania:manaMirror>, <Botania:spawnerMover>, TB, <Botania:thorRing>, TI],
+  [<Botania:rune:9>, TB, <Botania:flugelEye>, <Botania:manaMirror>, <Botania:manaTablet>, <Botania:manaMirror>, <Botania:flugelEye>, TB, <Botania:rune:15>],
+  [TI, <Botania:dice>, TB, <Botania:spawnerMover>, <Botania:manaMirror>, <Botania:spawnerMover>, TB, <Botania:dice>, TI],
+  [iC, FMP, TB, TB, <Botania:flugelEye>, TB, TB, FMP, iC],
+  [iC, FMP, FMP, <Botania:dice>, TB, <Botania:dice>, FMP, FMP, iC],
+  [<Botania:rune:13>, iC, iC, TI, <Botania:rune:11>, TI, iC, iC, <Botania:rune:12>]]);
+
+#Everlasting Brew
+mods.avaritia.ExtremeCrafting.addShaped(<skillscraft:item.EverlastingWater>,
+ [[<Botania:rune:14>, iC, iC, TI, <Botania:rune:10>, TI, iC, iC, <Botania:rune:7>],
+  [iC, FMP, FMP, <Botania:infiniteFruit>, <Botania:flightTiara:0>, <Botania:kingKey>, FMP, FMP, iC],
+  [iC, FMP, TB, TB, <Botania:flugelEye>, TB, TB, FMP, iC],
+  [TI, <Botania:odinRing>, TB, <Botania:spawnerMover>, <Botania:manaMirror>, <Botania:spawnerMover>, TB, <Botania:thorRing>, TI],
+  [<Botania:rune:9>, TB, <Botania:flugelEye>, <Botania:manaMirror>, <minecraft:water_bucket>, <Botania:manaMirror>, <Botania:flugelEye>, TB, <Botania:rune:15>],
+  [TI, <Botania:dice>, TB, <Botania:spawnerMover>, <Botania:manaMirror>, <Botania:spawnerMover>, TB, <Botania:dice>, TI],
+  [iC, FMP, TB, TB, <Botania:flugelEye>, TB, TB, FMP, iC],
+  [iC, FMP, FMP, <Botania:dice>, TB, <Botania:dice>, FMP, FMP, iC],
+  [<Botania:rune:13>, iC, iC, TI, <Botania:rune:11>, TI, iC, iC, <Botania:rune:12>]]);
+
+#The Everlasting Guilty Pool recipe is baked into the SkillsCraft Mod.
+
+#AE2 Creative Energy Cell
+mods.avaritia.ExtremeCrafting.remove(<appliedenergistics2:tile.BlockCreativeEnergyCell>);
+val DES = <appliedenergistics2:tile.BlockDenseEnergyCell>;
+val EP = <appliedenergistics2:item.ItemMultiMaterial:24>;
+val SG = <appliedenergistics2:item.ItemMultiMaterial:47>;
+val QS = <appliedenergistics2:item.ItemMultiMaterial:48>;
+val MS = <extracells:storage.component:3>;
+mods.avaritia.ExtremeCrafting.addShaped(<appliedenergistics2:tile.BlockCreativeEnergyCell>,
+ [[SG, iI, iI, iI, QS, iI, iI, iI, SG],
+  [iI, iC, DES, DES, EP, DES, DES, iC, iI],
+  [iI, DES, iC, DES, DES, DES, iC, DES, iI],
+  [iI, DES, DES, iC, EP, iC, DES, DES, iI],
+  [iC, EP, DES, EP, MS, EP, DES, EP, iC],
+  [iI, DES, DES, iC, EP, iC, DES, DES, iI],
+  [iI, DES, iC, DES, DES, DES, iC, DES, iI],
+  [iI, iC, DES, DES, EP, DES, DES, iC, iI],
+  [SG, iI, iI, iI, iC, iI, iI, iI, SG]]);
+
+#Creative Tool Modifier
+val SJ = <TConstruct:materials:26>;
+val BM = <TConstruct:materials:6>;
+val MI = <TConstruct:materials:5>;
+val MB = <TConstruct:MetalBlock:2>;
+mods.avaritia.ExtremeCrafting.addShaped(<TConstruct:creativeModifier>,
+ [[SJ, SJ, NLP, BM, BM, BM, NLP, SJ, SJ],
+  [SJ, MI, MI, MI, MI, MI, MI, MI, SJ],
+  [NLP, MI, NLP, iI, iI, iI, NLP, MI, NLP],
+  [BM, MI, iI, iI, iI, iI, iI, MI, BM],
+  [BM, MI, iI, iI, <ore:itemSkull>, iI, iI, MI, BM],
+  [BM, MI, iI, iI, iI, iI, iI, MI, BM],
+  [NLP, MI, NLP, iI, iI, iI, NLP, MI, NLP],
+  [SJ, MI, MI, MI, MI, MI, MI, MI, SJ],
+  [SJ, SJ, NLP, BM, BM, BM, NLP, SJ, SJ]]);
+
+#Infinity Egg
+mods.avaritia.ExtremeCrafting.remove(<witchery:infinityegg>);
+mods.avaritia.ExtremeCrafting.addShaped(<witchery:infinityegg>,
+ [[null, null, null, nI, nI, nI, null, null, null],
+  [null, null, nI, nI, nI, nI, nI, null, null],
+  [null, null, nI, nI, nI, nI, nI, null, null],
+  [null, nI, nI, nI, iI, nI, nI, nI, null],
+  [nI, nI, nI, iI, iI, iI, nI, nI, nI],
+  [nI, nI, iI, iI, <minecraft:dragon_egg>, iI, iI, nI, nI],
+  [nI, nI, nI, iI, iI, iI, nI, nI, nI],
+  [null, nI, nI, nI, iI, nI, nI, nI, null],
+  [null, null, nI, nI, nI, nI, nI, null, null]]);
+
+#Disable World Hole upgrade
+recipes.remove(<ExtraUtilities:enderQuarryUpgrade:1>);
+<ExtraUtilities:enderQuarryUpgrade:1>.addTooltip(format.yellow("The World Hole Upgrade is disabled."));
+
+#Remove Pink Slimeball from oredict
+slimeBall.remove(<MineFactoryReloaded:pinkslime>);
+slimeBall.remove(<TConstruct:strangeFood:0>);
+slimeBall.remove(<TConstruct:strangeFood:1>);
+slimeBall.remove(<TConstruct:materials:36>);
+
+#Disable ore dictionary converters
+recipes.remove(<ThermalFoundation:lexicon>);
+<ThermalFoundation:lexicon>.addTooltip(format.red("Ore dictionary converters are disabled."));
+recipes.remove(<MineFactoryReloaded:machine.1:8>);
+<MineFactoryReloaded:machine.1:8>.addTooltip(format.red("Ore dictionary converters are disabled."));
+
+#Disable ProjectRed Project Bench
+recipes.remove(<ProjRed|Expansion:projectred.expansion.machine2:10>);
+<ProjRed|Expansion:projectred.expansion.machine2:10>.addTooltip(format.red("The Project Bench has been disabled."));
+
+#Brewing Stand fix
+recipes.remove(<minecraft:brewing_stand>);
+<minecraft:brewing_stand>.addTooltip(format.yellow("This Brewing Stand is deprecated."));
+<minecraft:brewing_stand>.addTooltip(format.yellow("Use Et Futurum's Brewing Stand instead."));
+<minecraft:brewing_stand>.addTooltip(format.yellow("Place this Brewing Stand in a"));
+<minecraft:brewing_stand>.addTooltip(format.yellow("crafting grid to update it."));
+recipes.remove(<etfuturum:brewing_stand>);
+recipes.addShaped(<etfuturum:brewing_stand>,
+ [[null, blazeRod, null],
+  [cobblestoneBlock, cobblestoneBlock, cobblestoneBlock]]);
+recipes.addShapeless(<etfuturum:brewing_stand>, [<minecraft:brewing_stand>]);
+
+  
+recipes.addShaped(<Botania:alchemyCatalyst>,
+ [[livingrock, goldIngot, livingrock],
+  [<etfuturum:brewing_stand>, pearlMana, <etfuturum:brewing_stand>],
+  [livingrock, goldIngot, livingrock]]);
+  
+recipes.addShaped(<Botania:brewery>,
+ [[livingrock, <etfuturum:brewing_stand>, livingrock],
+  [livingrock, manaRuneB, livingrock],
+  [livingrock, <Botania:storage:0>, livingrock]]);
+  
+recipes.addShaped(<MineFactoryReloaded:machine.2:5>,
+ [[plasticSheet, <etfuturum:brewing_stand>, plasticSheet],
+  [<MineFactoryReloaded:cable.plastic>, <ThermalExpansion:Frame:0>, <MineFactoryReloaded:cable.plastic>],
+  [<minecraft:repeater>, <ThermalExpansion:material:1>, <minecraft:repeater>]]);
+
+recipes.addShaped(<MineFactoryReloaded:machine.2:5>,
+ [[plasticSheet, <etfuturum:brewing_stand>, plasticSheet],
+  [<EnderIO:itemLiquidConduit:0>, EIOMachineChassi, <EnderIO:itemLiquidConduit:0>],
+  [<minecraft:repeater>, redstoneDust, <minecraft:repeater>]]);
+
+mods.bloodmagic.BloodOrb.addShaped(<AWWayofTime:blockWritingTable>, [[null, <etfuturum:brewing_stand>, null],
+  [obsidianBlock, <AWWayofTime:weakBloodOrb>, obsidianBlock]]);
+
+mods.bloodmagic.BloodOrb.addShaped(<AWWayofTime:blockWritingTable>, [[null, null,null],
+  [null, <etfuturum:brewing_stand>, null],
+  [obsidianBlock, <AWWayofTime:weakBloodOrb>, obsidianBlock]]);
+  
+#Enchantment Table fix
+recipes.remove(<minecraft:enchanting_table>);
+<minecraft:enchanting_table>.addTooltip(format.yellow("This Enchantment Table is deprecated."));
+<minecraft:enchanting_table>.addTooltip(format.yellow("Use Et Futurum's Enchantment Table instead."));
+<minecraft:enchanting_table>.addTooltip(format.yellow("Place this Enchantment Table in a"));
+<minecraft:enchanting_table>.addTooltip(format.yellow("crafting grid to update it."));
+
+recipes.addShaped(<ExtraUtilities:generator:6>,
+ [[obsidianBlock, obsidianBlock, obsidianBlock],
+  [obsidianBlock, <etfuturum:enchantment_table>, obsidianBlock],
+  [redstoneDust, <minecraft:furnace>, redstoneDust]]);
+
+recipes.addShaped(<StevesCarts:upgrade:2>,
+ [[<minecraft:book>, <minecraft:bookshelf>, <minecraft:book>],
+  [<minecraft:bookshelf>, <etfuturum:enchantment_table>, <minecraft:bookshelf>],
+  [<StevesCarts:ModuleComponents:22>, <StevesCarts:ModuleComponents:59>, <StevesCarts:ModuleComponents:22>]]);
+
+recipes.addShaped(<StevesCarts:CartModule:82>,
+ [[null, <StevesCarts:ModuleComponents:47>, null],
+  [<minecraft:book>, <etfuturum:enchantment_table>, <minecraft:book>],
+  [redstoneDust, <StevesCarts:ModuleComponents:16>, redstoneDust]]);
+
+recipes.addShaped(<OpenBlocks:autoenchantmenttable>,
+ [[ironIngot, ironIngot, ironIngot],
+  [ironIngot, <etfuturum:enchantment_table>, ironIngot],
+  [redstoneDust, redstoneDust, redstoneDust]]);
+
+recipes.addShaped(<DraconicEvolution:weatherController>,
+ [[blazeRod, draconiumIngot, blazeRod],
+  [<minecraft:tnt>, <DraconicEvolution:draconicCore>, <minecraft:tnt>],
+  [draconiumIngot, <etfuturum:enchantment_table>, draconiumIngot]]);
+
+recipes.addShaped(<DraconicEvolution:energyInfuser>,
+ [[draconiumIngot, <DraconicEvolution:particleGenerator>, draconiumIngot],
+  [<DraconicEvolution:draconicCore>, <etfuturum:enchantment_table>, <DraconicEvolution:draconicCore>],
+  [draconiumIngot, <DraconicEvolution:draconicCore>, draconiumIngot]]);
+
+recipes.addShaped(<DraconicEvolution:dissEnchanter>,
+ [[enderEyePearl, <minecraft:enchanted_book>, enderEyePearl],
+  [emeraldGem, <etfuturum:enchantment_table>, emeraldGem],
+  [<DraconicEvolution:draconicCore>, <minecraft:book>, <DraconicEvolution:draconicCore>]]);
+
+recipes.addShaped(<DraconicEvolution:sunDial>,
+ [[draconiumIngot, <DraconicEvolution:awakenedCore>, draconiumIngot],
+  [<DraconicEvolution:draconicCore>, <minecraft:dragon_egg>, <DraconicEvolution:draconicCore>],
+  [draconiumIngot, <etfuturum:enchantment_table>, draconiumIngot]]);
+
+mods.tconstruct.Smeltery.addMelting(<etfuturum:enchantment_table>, <liquid:obsidian.molten> * 576, 750, <minecraft:obsidian>);
+
+#Minecraft Beacon Tooltip
+<minecraft:beacon>.addTooltip(format.yellow("This Beacon is from vanilla"));
+<minecraft:beacon>.addTooltip(format.yellow("Minecraft, and can be used"));
+<minecraft:beacon>.addTooltip(format.yellow("for crafting. However, it"));
+<minecraft:beacon>.addTooltip(format.yellow("it will not output colored"));
+<minecraft:beacon>.addTooltip(format.yellow("beams of light."));
+<minecraft:beacon>.addTooltip(format.yellow(""));
+<minecraft:beacon>.addTooltip(format.yellow("In order to use colored,"));
+<minecraft:beacon>.addTooltip(format.yellow("beams of light, place this"));
+<minecraft:beacon>.addTooltip(format.yellow("Beacon in a crafting grid to"));
+<minecraft:beacon>.addTooltip(format.yellow("convert it to the Et Futurum"));
+<minecraft:beacon>.addTooltip(format.yellow("Beacon."));
+
+#Et Futurum Beacon Tooltip
+<etfuturum:beacon>.addTooltip(format.yellow("This Beacon is from Et Futurum,"));
+<etfuturum:beacon>.addTooltip(format.yellow("and can output colored beams."));
+<etfuturum:beacon>.addTooltip(format.yellow("of light. However, it cannot be"));
+<etfuturum:beacon>.addTooltip(format.yellow("used for crafting."));
+<etfuturum:beacon>.addTooltip(format.yellow(""));
+<etfuturum:beacon>.addTooltip(format.yellow("In order to craft with this"));
+<etfuturum:beacon>.addTooltip(format.yellow("Beacon, place this Beacon"));
+<etfuturum:beacon>.addTooltip(format.yellow("in a crafting grid to convert"));
+<etfuturum:beacon>.addTooltip(format.yellow("it to the vanilla Minecraft Beacon."));
+
+#Minecraft Daylight Sensor Tooltip
+<minecraft:daylight_detector>.addTooltip(format.yellow("This Daylight Sensor is from"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("vanilla Minecraft, and can be"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("used for crafting. However, it"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("cannot be inverted."));
+<minecraft:daylight_detector>.addTooltip(format.yellow(""));
+<minecraft:daylight_detector>.addTooltip(format.yellow("In order to invert this Daylight"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("Sensor, place this in a crafting"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("grid to convert it to the"));
+<minecraft:daylight_detector>.addTooltip(format.yellow("Et Futurum Daylight Sensor."));
+
+#Et Futurum Daylight Sensor Tooltip
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("This Daylight Sensor is from"));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("Et Futurum, and can be inverted."));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("However, it cannot be used"));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("for crafting."));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow(""));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("In order to craft with this Daylight"));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("Sensor, place this in a crafting"));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("grid to convert it to the"));
+<etfuturum:daylight_sensor>.addTooltip(format.yellow("vanilla Minecraft Daylight Sensor."));
+
+#Disable HQM
+recipes.remove(<HardcoreQuesting:quest_book>);
+NEI.hide(<HardcoreQuesting:quest_book>);
+<HardcoreQuesting:quest_book>.addTooltip(format.green("Press the [~] key on your keyboard"));
+<HardcoreQuesting:quest_book>.addTooltip(format.green("to open the quest book at any time,"));
+<HardcoreQuesting:quest_book>.addTooltip(format.green("even if you don't have this quest"));
+<HardcoreQuesting:quest_book>.addTooltip(format.green("book on hand. This book does"));
+<HardcoreQuesting:quest_book>.addTooltip(format.green("nothing on it's own."));
+
+#Hide unobtainable items from NEI
+NEI.hide(<MCA:BlockVillagerBedRed>);
+NEI.hide(<MCA:BlockVillagerBedBlue>);
+NEI.hide(<MCA:BlockVillagerBedGreen>);
+NEI.hide(<MCA:BlockVillagerBedPink>);
+NEI.hide(<MCA:BlockVillagerBedPurple>);
+NEI.hide(<MCA:VillagerSpawner>);
+NEI.hide(<MCA:tile.null>);
+NEI.hide(<MCA:tile.memorialblock>);
+NEI.hide(<MCA:villagereditor>);
+NEI.hide(<MCA:CrystalBall>);
+
+#Disable chunkloaders
+recipes.remove(<StevesCarts:CartModule:49>);
+<StevesCarts:CartModule:49>.addTooltip(format.yellow("This item has been disabled."));
+<StevesCarts:CartModule:49>.addTooltip(format.yellow("To load chunks, use Spot Loaders."));
+recipes.remove(<ChickenChunks:chickenChunkLoader:0>);
+<ChickenChunks:chickenChunkLoader:0>.addTooltip(format.yellow("This item has been disabled."));
+<ChickenChunks:chickenChunkLoader:0>.addTooltip(format.yellow("To load chunks, use Spot Loaders."));
+recipes.remove(<ChickenChunks:chickenChunkLoader:1>);
+<ChickenChunks:chickenChunkLoader:1>.addTooltip(format.yellow("Chunk loader crafting is disabled."));
+<ChickenChunks:chickenChunkLoader:1>.addTooltip(format.yellow("Instead, purchase them at the"));
+<ChickenChunks:chickenChunkLoader:1>.addTooltip(format.yellow("SkillsCraft Network Store."));
+recipes.remove(<MineFactoryReloaded:machine.2:10>);
+<MineFactoryReloaded:machine.2:10>.addTooltip(format.yellow("This item has been disabled."));
+<MineFactoryReloaded:machine.2:10>.addTooltip(format.yellow("To load chunks, use Spot Loaders."));
+
+#Clarify some items
+<MCA:DiamondDust>.addTooltip(format.red("This Diamond Dust is only for"));
+<MCA:DiamondDust>.addTooltip(format.red("MCA Gem Crafting and cannot"));
+<MCA:DiamondDust>.addTooltip(format.red("be used as a normal Diamond"));
+<MCA:DiamondDust>.addTooltip(format.red("Dust."));
+
+<MCA:ColoredDiamondDust:*>.addTooltip(format.red("This Diamond Dust is only for"));
+<MCA:ColoredDiamondDust:*>.addTooltip(format.red("MCA Gem Crafting and cannot"));
+<MCA:ColoredDiamondDust:*>.addTooltip(format.red("be used as a normal Diamond"));
+<MCA:ColoredDiamondDust:*>.addTooltip(format.red("Dust."));
+
+<MCA:GoldDust>.addTooltip(format.red("Gold Dust extracted from"));
+<MCA:GoldDust>.addTooltip(format.red("Rose Gold. This form of"));
+<MCA:GoldDust>.addTooltip(format.red("Gold Dust cannot be used"));
+<MCA:GoldDust>.addTooltip(format.red("as a normal Gold Dust."));
+
+<MCA:ColoredDiamond:*>.addTooltip(format.red("This Diamond is only for"));
+<MCA:ColoredDiamond:*>.addTooltip(format.red("MCA Gem Crafting and cannot"));
+<MCA:ColoredDiamond:*>.addTooltip(format.red("be used as a normal Diamond."));
+
+#Ore Dictionary Removal
+#BoP Flesh Block OD entry Removal to prevent exploit with MRF Meat Block crafting into 9 meat ingots
+val entry = <ore:blockMeatRaw>;
+entry.remove(<BiomesOPlenty:flesh>);
+
+#Recipe Conflicts
+recipes.remove(<ComputerCraft:CC-Cable:1>);
+recipes.addShaped(<ComputerCraft:CC-Cable:1>, [[<minecraft:stone>, <minecraft:stone>, <minecraft:stone>], [<minecraft:stone>, <minecraft:redstone_block>, <minecraft:stone>], [<minecraft:stone>, <minecraft:stone>, <minecraft:stone>]]);
+
+recipes.remove(<runicdungeons:item.basicBelt>);
+recipes.addShaped(<runicdungeons:item.basicBelt>, [[null, <minecraft:leather>, null], [<minecraft:leather>, null, <minecraft:leather>], [<minecraft:gold_ingot>, null, <minecraft:gold_ingot>]]);
+
+recipes.remove(<Botany:trowelIron>);
+recipes.remove(<Botany:trowelGold>);
+recipes.remove(<Botany:trowelDiamond>);
+recipes.remove(<Botany:trowelStone>);
+recipes.remove(<Botany:trowelWood>);
+recipes.addShaped(<Botany:trowelGold>, [[null, null, <minecraft:gold_ingot>], [null, <ore:stickWood>, null], [<ore:stickWood>, null, null]]);
+recipes.addShaped(<Botany:trowelDiamond>, [[null, null, <minecraft:diamond>], [null, <ore:stickWood>, null], [<ore:stickWood>, null, null]]);
+recipes.addShaped(<Botany:trowelStone>, [[null, null, <ore:cobblestone>], [null, <ore:stickWood>, null], [<ore:stickWood>, null, null]]);
+recipes.addShaped(<Botany:trowelIron>, [[null, null, <minecraft:iron_ingot>], [null, <minecraft:stick>, null], [<ore:stickWood>, null, null]]);
+recipes.addShaped(<Botany:trowelWood>, [[null, null, <minecraft:planks>], [null, <ore:stickWood>, null], [<ore:stickWood>, null, null]]);
+recipes.addShaped(<guideapi:ItemGuideBook>, [[<minecraft:book>, <minecraft:porkchop>, null], [null, null, null], [null, null, null]]);
+
+#Corn / Rye Fix
+recipes.remove(<ExtraTrees:misc:11>);
+recipes.remove(<ExtraTrees:misc:9>);
+recipes.addShaped(<ExtraTrees:misc:11>, [[null, <ExtraTrees:misc:8>, null], [null, null, <ExtraTrees:misc:8>], [null, <ExtraTrees:misc:8>, null]]);
+recipes.addShaped(<ExtraTrees:misc:9>, [[null, <ExtraTrees:misc:8>, null], [<ExtraTrees:misc:8>, null, null], [null, <ExtraTrees:misc:8>, null]]);
+
+#wheat seeds recipe:
+recipes.addShapeless(<minecraft:wheat_seeds> * 2, [<minecraft:wheat>, <minecraft:wheat>]);
+
+#Coal Coke Fix
+furnace.setFuel(<ImmersiveEngineering:stoneDecoration:3>, 32000);
+mods.railcraft.BlastFurnace.addFuel(<ImmersiveEngineering:material:6>);
+mods.railcraft.BlastFurnace.addFuel(<ImmersiveEngineering:stoneDecoration:3>);
+
+#Minecart Dupe Fix
+recipes.remove(<minecraft:minecart>);
+recipes.addShaped(<minecraft:minecart>,[[<minecraft:iron_ingot>, null, <minecraft:iron_ingot>],[<minecraft:iron_ingot>, <minecraft:iron_ingot>, <minecraft:iron_ingot>],[null, null, null]]);
+
+#Quartz Fix
+<ore:dustNetherQuartz>.addAll(<ore:dustQuartz>);
+<ore:dustQuartz>.mirror(<ore:dustNetherQuartz>);
+
+#Bamboo Thatching Recipe
+val stickForCrop = <ore:stickCrop>;
+<ore:stickCrop>.mirror(<ore:stickWood>);
+stickForCrop.remove(<BiomesOPlenty:bamboo>);
+recipes.removeShaped(<AgriCraft:cropsItem>);
+recipes.addShaped(<AgriCraft:cropsItem> * 4,[[stickForCrop, stickForCrop],[stickForCrop, stickForCrop]]);
+
+#Tinker Unstable Parts
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:toughRod:314>, <liquid:molten.unstableingots> * 432, <TConstruct:metalPattern:14>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:toolRod:314>, <liquid:molten.unstableingots> * 72, <TConstruct:metalPattern:1>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:pickaxeHead:314>, <liquid:molten.unstableingots> * 144, <TConstruct:metalPattern:2>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:shovelHead:314>, <liquid:molten.unstableingots> * 144, <TConstruct:metalPattern:3>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:hatchetHead:314>, <liquid:molten.unstableingots> * 144, <TConstruct:metalPattern:4>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:swordBlade:314>, <liquid:molten.unstableingots> * 144, <TConstruct:metalPattern:5>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:wideGuard:314>, <liquid:molten.unstableingots> * 72, <TConstruct:metalPattern:6>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:handGuard:314>, <liquid:molten.unstableingots> * 72, <TConstruct:metalPattern:7>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:crossbar:314>, <liquid:molten.unstableingots> * 72, <TConstruct:metalPattern:8>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:binding:314>, <liquid:molten.unstableingots> * 72, <TConstruct:metalPattern:9>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:frypanHead:314>, <liquid:molten.unstableingots> * 144, <TConstruct:metalPattern:10>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:signHead:314>, <liquid:molten.unstableingots> * 144, <TConstruct:metalPattern:11>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:knifeBlade:314>, <liquid:molten.unstableingots> * 72, <TConstruct:metalPattern:12>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:chiselHead:314>, <liquid:molten.unstableingots> * 72, <TConstruct:metalPattern:13>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:toughBinding:314>, <liquid:molten.unstableingots> * 432, <TConstruct:metalPattern:15>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:heavyPlate:314>, <liquid:molten.unstableingots> * 1152, <TConstruct:metalPattern:16>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:broadAxeHead:314>, <liquid:molten.unstableingots> * 1152, <TConstruct:metalPattern:17>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:scytheBlade:314>, <liquid:molten.unstableingots> * 1152, <TConstruct:metalPattern:18>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:excavatorHead:314>, <liquid:molten.unstableingots> * 1152, <TConstruct:metalPattern:19>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:largeSwordBlade:314>, <liquid:molten.unstableingots> * 1152, <TConstruct:metalPattern:20>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:hammerHead:314>, <liquid:molten.unstableingots> * 1152, <TConstruct:metalPattern:21>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:fullGuard:314>, <liquid:molten.unstableingots> * 432, <TConstruct:metalPattern:22>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:ShurikenPart:314>, <liquid:molten.unstableingots> * 72, <TConstruct:Cast>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:CrossbowLimbPart:314>, <liquid:molten.unstableingots> * 576, <TConstruct:Cast:1>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:CrossbowBodyPart:314>, <liquid:molten.unstableingots> * 720, <TConstruct:Cast:2>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:BowLimbPart:314>, <liquid:molten.unstableingots> * 216, <TConstruct:Cast:3>, false, 50);
+mods.tconstruct.Casting.addTableRecipe(<TConstruct:arrowhead:314>, <liquid:molten.unstableingots> * 144, <TConstruct:metalPattern:25>, false, 50);
+
+#Biodiesel<->Forestry Ethanol
+mods.buildcraft.Refinery.addRecipe(<liquid:bioethanol> * 10, 880, 1, <liquid:biodiesel>*5, <liquid:biodiesel>*5);
+mods.buildcraft.Refinery.addRecipe(<liquid:biodiesel> * 10, 10, 1, <liquid:bioethanol>*5, <liquid:bioethanol>*5);
+
+#Recipe fix for Smooth blackstone -> Paved Blackstone
+recipes.removeShapeless(<minecraft:stone_button>, [<MineFactoryReloaded:stone>]);
+recipes.addShapeless(<minecraft:stone_button>, [<minecraft:stone>]);
+
+#Railcraft Tin Plate Fix
+val tin = <ore:ingotTin>;
+mods.railcraft.Rolling.addShaped(<Railcraft:part.plate:2>, [[tin, tin, null], [tin, tin, null], [null, null, null]]);
+
+#TC Nugget dupe Fix
+mods.thaumcraft.Aspects.remove(<Thaumcraft:ItemNugget>, "metallum 4");
+mods.thaumcraft.Aspects.set(<Thaumcraft:ItemNugget>, "metallum 1");
+
+#Fix Electronine Bee Comb Drops
+mods.forestry.Centrifuge.addRecipe([<ProjRed|Core:projectred.core.part:56> % 50, <Forestry:beeswax> % 50, <Forestry:honeyDrop> % 30], <gendustry:HoneyComb:13339>, 20);
+
+print("Initialized 'InfinityPackWideChanges.zs'");
