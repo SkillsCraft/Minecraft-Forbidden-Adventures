@@ -4,6 +4,12 @@ import mods.nei.NEI;
 
 print("Initializing 'InfinityPackWideChanges.zs'...");
 
+#Craft HEE Enderman Head to Ender IO
+recipes.addShapeless(<EnderIO:blockEndermanSkull>, [<HardcoreEnderExpansion:enderman_head>]);
+<EnderIO:blockEndermanSkull>.addTooltip(format.yellow("Place an Enderman Head from Hardcore Ender Expansion"));
+<EnderIO:blockEndermanSkull>.addTooltip(format.yellow("in a crafting grid to convert it to a Ender IO one."));
+<HardcoreEnderExpansion:enderman_head>.addTooltip(format.yellow("Place an Enderman Head from Hardcore Ender Expansion"));
+<HardcoreEnderExpansion:enderman_head>.addTooltip(format.yellow("in a crafting grid to convert it to a Ender IO one."));
 #Disable Harvestcraft Market
 recipes.remove(<harvestcraft:market>);
 <harvestcraft:market>.addTooltip(format.red("This item is disabled due to a duping bug."));
